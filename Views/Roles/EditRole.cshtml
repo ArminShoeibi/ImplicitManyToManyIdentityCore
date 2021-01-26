@@ -1,0 +1,40 @@
+﻿@model UpdateApplicationRoleDto
+@{
+    ViewData["Title"] = "Edit Role";
+}
+
+<form method="post" asp-action="EditRole">
+    <input asp-for="RoleId" hidden />
+
+    <div class="row mb-3">
+        <div class="col">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col">
+            <label asp-for="DisplayName" class="form-label"></label>
+            <input asp-for="DisplayName" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+    </div>
+
+
+    <div class="row mb-3">
+        <div class="col">
+            <label asp-for="Description" class="form-label"></label>
+            <textarea asp-for="Description" class="form-control"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <input type="submit" class="btn btn-success" value="Edit" />
+        </div>
+    </div>
+
+</form>

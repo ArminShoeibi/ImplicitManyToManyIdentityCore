@@ -1,0 +1,91 @@
+﻿@model CreateApplicationUserDto
+@{
+    ViewData["Title"] = "Create User";
+}
+
+<form method="post" asp-action="CreateUser">
+
+    <div class="row mb-3">
+        <div class="col">
+            <label asp-for="UserName" class="form-label"></label>
+            <input asp-for="UserName" class="form-control form-control-lg">
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col">
+            <label asp-for="FirstName" class="form-label"></label>
+            <input asp-for="FirstName" class="form-control" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+
+        <div class="col">
+            <label asp-for="LastName" class="form-label"></label>
+            <input asp-for="LastName" class="form-control" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col">
+            <label asp-for="PhoneNumber" class="form-label"></label>
+            <input asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+
+        <div class="col">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col">
+            <label asp-for="Roles" class="form-label"></label>
+            <select asp-for="Roles" asp-items="ViewBag.Roles" multiple class="form-select">
+                <option></option>
+            </select>
+        </div>
+    </div>
+
+
+    <div class="row mb-3">
+        <div class="col">
+            <label asp-for="Password" class="form-label"></label>
+            <input asp-for="Password" class="form-control form-control-lg">
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <div class="col">
+            <label asp-for="ConfirmPassword" class="form-label"></label>
+            <input asp-for="ConfirmPassword" class="form-control form-control-lg">
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <input type="submit" class="btn btn-success" />
+        </div>
+    </div>
+
+</form>
+
+@section styles {
+    <link href="~/lib/select2/css/select2.min.css" rel="stylesheet" asp-append-version="true" />
+}
+
+@section scripts {
+    <script src="~/lib/select2/js/select2.full.min.js" asp-append-version="true"></script>
+
+    <script>
+        $('#Roles').select2({
+            allowClear: true,
+            placeholder: 'Please select some roles',
+        });
+    </script>
+
+
+}

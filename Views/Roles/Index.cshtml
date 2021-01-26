@@ -1,0 +1,41 @@
+﻿@model IEnumerable<RoleDetailDto> 
+@{
+    ViewData["Title"] = "Roles";
+}
+
+<div class="row mb-3">
+    <div class="col">
+        <a asp-action="CreateRole" asp-controller="Roles" class="btn btn-success">Create Role</a>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Display Name</th>
+                <th>Description</th>
+                <th>Number Of Users</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var role in Model)
+            {
+            <tr>
+                <td>@role.RoleId</td>
+                <td>@role.Name</td>
+                <td>@role.DisplayName</td>
+                <td>@role.Description</td>
+                <td>@role.NumberOfUsers</td>
+                <td>
+                    <a asp-action="EditRole" asp-controller="Roles" asp-route-id="@role.RoleId" class="btn btn-primary">Edit</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

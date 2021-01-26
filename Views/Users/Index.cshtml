@@ -1,0 +1,45 @@
+﻿@model List<ApplicationUserDetailDto>
+@{
+    ViewData["Title"] = "Users";
+}
+
+<div class="row mb-3">
+    <div class="col">
+        <a asp-action="CreateUser" asp-controller="Users" class="btn btn-success">Create User</a>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Full Name</th>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Roles</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var user in Model)
+            {
+            <tr>
+                <td>@user.ApplicationUserId</td>
+                <td>@user.FullName</td>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>@user.PhoneNumber</td>
+                <td>@user.Roles</td>
+                <td>
+                    <a asp-action="EditUser" asp-controller="Users" asp-route-id="@user.ApplicationUserId" class="btn btn-primary">Edit</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
