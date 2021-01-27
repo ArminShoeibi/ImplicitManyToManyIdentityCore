@@ -21,8 +21,8 @@ namespace ImplicitManyToManyIdentityCore.Data
                         .HasMany(u => u.Roles)
                         .WithMany(r => r.Users)
                         .UsingEntity<IdentityUserRole<int>>
-                        (au => au.HasOne<ApplicationRole>().WithMany(role => role.UserRoles).HasForeignKey(u=> u.RoleId),
-                        au => au.HasOne<ApplicationUser>().WithMany(user => user.UserRoles).HasForeignKey(r=> r.UserId));
+                        (au => au.HasOne<ApplicationRole>().WithMany(role => role.UserRoles).HasForeignKey(role=> role.RoleId),
+                        au => au.HasOne<ApplicationUser>().WithMany(user => user.UserRoles).HasForeignKey(user=> user.UserId));
 
         }
     }
